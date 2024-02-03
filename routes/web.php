@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PublicController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [PublicController::class, 'home'])->name('home');
+Route::get('/articles/create',[App\Http\Controllers\ArticleController::class,'create'])->name('articles.create');
+Route::post('/article/store',[ArticleController::class,'store'])->name('articles.store');
+
