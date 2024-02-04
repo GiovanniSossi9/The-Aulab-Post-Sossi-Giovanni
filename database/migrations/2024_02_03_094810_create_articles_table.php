@@ -11,7 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('articles', function (Blueprint $table) {
+        if(!Schema::hasTable('articles')){
+                    Schema::create('articles', function (Blueprint $table) {
             $table->id();
             $table->string('title');
             $table->string('description');
@@ -22,7 +23,10 @@ return new class extends Migration
             $table->unsignedBigInteger('category_id');
             $table->foreign('cateogry_id')->references('id')->on('categories');
             $table->timestamps();
-        });
+        }); 
+        }
+
+
     }
 
     /**
