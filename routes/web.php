@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\PublicController;
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\RevisorController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,5 +35,12 @@ Route::middleware('admin')->group(function(){
 Route::middleware('writer')->group(function(){
     Route::get('/article/create',[ArticleController::class, 'create'])->name('article.create');
     Route::post('/article/store',[ArticleController::class, 'store'])->name('article.store');
+});
+
+Route::middleware('revisor')->group(function(){
+    Route::get('/revisor/dashboard', [RevisorController::class, 'revisorDashboard'])->name('revisor.dashboard');
+    Route::get('/revisor/article/{article}/detail',[RevisorController::class, 'articleDetail'])->name('revisor.detail');
+    Route::get('/revisor/article/{article}/accept',[RevisorController::class, 'acceptArticle'])->name('revisor.accept');
+    Route::get('/revisor/article/{article}/reject', [RevisorController::class, 'rejectArticle'])->name('revisor.reject');
 });
 
