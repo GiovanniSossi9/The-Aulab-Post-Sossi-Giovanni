@@ -29,15 +29,16 @@
                     <a class="nav-link">{{Auth::user()->name}}</a>
                   </li>
                   <li class="nav-item">
-                    <a href="{{route('logout')}}" class="dropdown-item" onclick="event.preventDefault(); document.getElementById('form-logout').submit();">Logout</a>
+                    <a href="{{route('logout')}}" class="nav-link" onclick="event.preventDefault(); document.getElementById('form-logout').submit();">Logout</a>
                     <form method="POST" action="{{route('logout')}}" style="display: none" id="form-logout">
                         @csrf
                     </form>
+                    <li class="nav-item">
+                      <a class="nav-link" href="{{route('articles.create')}}">Pubblica Articolo</a>
+                    </li>
                   </li>
               @endauth
-              <li class="nav-item">
-                <a class="nav-link" href="{{route('articles.create')}}">Pubblica Articolo</a>
-              </li>
+
             </ul>
           </div>
         </div>
