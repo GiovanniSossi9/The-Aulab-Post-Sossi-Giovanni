@@ -8,7 +8,7 @@
         </tr>
     </thead>
     <tbody>
-        @foreach ($revisorRequest as $user)
+        @foreach ($revisorRequests as $user)
         <tr>
             <th scope="row">{{$user->id}}</th>
             <td>{{$user->name}}</td>

@@ -25,9 +25,10 @@ Route::get('/articles/{category}/index', [App\Http\Controllers\ArticleController
 
 Route::get('/work-with-us',[App\Http\Controllers\PublicController::class, 'workWithUs'])->name('work.with.us');
 Route::post('/user/send-role-request',[App\Http\Controllers\PublicController::class, 'sendRoleRequest'])->name('user.role.request');
+
 Route::middleware('admin')->group(function(){
     Route::get('/admin/dashboard', [App\Http\Controllers\AdminController::class, 'dashboard'])->name('admin.dashboard');
-    Route::get('/admin/{user}/set-revisor', [AApp\Http\Controllers\dminController::class, 'makeUserRevisor'])->name('admin.makeUserRevisor');
+    Route::get('/admin/{user}/set-revisor', [AApp\Http\Controllers\AdminController::class, 'makeUserRevisor'])->name('admin.makeUserRevisor');
     Route::get('/admin/{user}/set-admin', [App\Http\Controllers\AdminController::class, 'makeUserAdmin'])->name('admin.makeUserAdmin');
     Route::get('/admin/{user}/set-writer', [App\Http\Controllers\AdminController::class, 'makeUserWriter'])->name('admin.makeUserWriter');
 });
