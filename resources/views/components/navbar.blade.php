@@ -37,8 +37,18 @@
                       <a class="nav-link" href="{{route('articles.create')}}">Pubblica Articolo</a>
                     </li>
                   </li>
-              @endauth
+                  <li class="nav-item">
+                    <a class="nav-link" href="{{route('admin.dashboard')}}">Dashboard Amministratori</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{{route('revisor.dashboard')}}">Dashboard Revisori</a>
+                  </li>
+                  
+                  <li class="nav-item">
+                    <a class="nav-link" href="{{route('work.with.us')}}">Lavora con noi</a>
+                  </li>
 
+              @endauth
             </ul>
           </div>
         </div>

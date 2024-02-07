@@ -4,12 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Models\Article;
 use Illuminate\Http\Request;
+use App\Mail\RequestRoleMail;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class PublicController extends Controller
 {
     public function home(){
-        $articles = Article::orderBy('created_at','desc')->take(6)->get();
+        $articles = Article::where('is_accepted', true)->orderBy('created_at', 'desc')->take(6)->get();
         return view('welcome',compact('articles'));
     }
     public function workWithUs(){
@@ -21,7 +23,7 @@ class PublicController extends Controller
         $email = $request->input('email');
         $presentation = $request->input('presentation');
         $requestMail = new RequestRoleMail(compact('role','email','presentation'));
-        Mail::to('admin@theaulabpost.it')->$request($requestMail);
+        Mail::to('admin@theaulabpost.it')->send($requestMail);
         switch ($role){
             case 'admin':
                 $user->is_admin = NULL;

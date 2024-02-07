@@ -74,7 +74,7 @@ class ArticleController extends Controller
         //
     }
     public function articles_by_cateogry(Category $category){
-        $article = Article::where('category_id', $category->id)->orderBy('created_at', 'DESC')->get();
+        $article = Article::where('category_id', $category->id)->where('is_accepted', true)->orderBy('created_at', 'DESC')->get();
         return view('article.category', compact('articles','category'));
     }
 }
