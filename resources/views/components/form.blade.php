@@ -1,4 +1,4 @@
-<form method="post" action="{{route('articles.store')}}" enctype="multipart/form-data" class="row">
+<form method="POST" action="{{route('articles.store')}}" enctype="multipart/form-data" class="row">
     @csrf
     <div class="mb-3 offset-md-5">
         <label class="form-label">Title</label>

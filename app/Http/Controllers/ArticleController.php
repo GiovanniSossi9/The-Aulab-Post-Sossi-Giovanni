@@ -36,7 +36,7 @@ class ArticleController extends Controller
                 'description'=>$request->input('description'),
                 'body'=>$request->input('body'),
                 'img'=>$request->file('img')->store("public/img"),
-                'category_id'=>$request->input('cateogry_id')
+                'category_id'=>$request->input('category_id')
             ]
             );
             return redirect()->route('home')->with("message","Articolo creato con successo");
@@ -73,8 +73,8 @@ class ArticleController extends Controller
     {
         //
     }
-    public function articles_by_cateogry(Category $category){
+    public function articlesForCategory(Category $category){
         $article = Article::where('category_id', $category->id)->where('is_accepted', true)->orderBy('created_at', 'DESC')->get();
-        return view('article.category', compact('articles','category'));
+        return view('articles.category', compact('article', 'category'));
     }
 }

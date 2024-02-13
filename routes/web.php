@@ -19,7 +19,7 @@ use App\Http\Controllers\RevisorController;
 
 Route::get('/', [PublicController::class, 'home'])->name('home');
 Route::get('/articles/create',[App\Http\Controllers\ArticleController::class, 'create'])->name('articles.create');
-Route::post('/article/store',[App\Http\Controllers\ArticleController::class, 'store'])->name('articles.store');
+Route::post('/articles/store',[App\Http\Controllers\ArticleController::class, 'store'])->name('articles.store');
 Route::get('/articles/{article}/show', [App\Http\Controllers\ArticleController::class, 'show'])->name('articles.show');
 Route::get('/articles/{category}/index', [App\Http\Controllers\ArticleController::class, 'articlesForCategory'])->name('articles.category');
 

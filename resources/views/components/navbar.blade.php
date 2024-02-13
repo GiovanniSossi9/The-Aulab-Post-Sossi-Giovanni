@@ -25,29 +25,34 @@
                   </li>
               @endguest
               @auth
-                  <li class="nav-item">
-                    <a class="nav-link">{{Auth::user()->name}}</a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="{{route('logout')}}" class="nav-link" onclick="event.preventDefault(); document.getElementById('form-logout').submit();">Logout</a>
-                    <form method="POST" action="{{route('logout')}}" style="display: none" id="form-logout">
-                        @csrf
-                    </form>
-                    <li class="nav-item">
-                      <a class="nav-link" href="{{route('articles.create')}}">Pubblica Articolo</a>
-                    </li>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="{{route('admin.dashboard')}}">Dashboard Amministratori</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="{{route('revisor.dashboard')}}">Dashboard Revisori</a>
-                  </li>
-                  
-                  <li class="nav-item">
-                    <a class="nav-link" href="{{route('work.with.us')}}">Lavora con noi</a>
-                  </li>
-
+              <li class="nav-item justify-content-end">
+                <a class="nav-link">{{Auth::user()->name}}</a>
+              </li>
+              <li class="nav-item">
+                <a href="{{route('logout')}}" class="nav-link" onclick="event.preventDefault(); document.getElementById('form-logout').submit();">Logout</a>
+                <form method="POST" action="{{route('logout')}}" style="display: none" id="form-logout">
+                  @csrf
+                </form>
+                @if (Auth::user()->is_writer == true)
+                <li class="nav-item">
+                  <a class="nav-link" href="{{route('articles.create')}}">Pubblica Articolo</a>
+                </li>
+                @endif
+                
+              </li>
+              @if (Auth::user()->is_admin == true)
+              <li class="nav-item">
+                <a class="nav-link" href="{{route('admin.dashboard')}}">Dashboard Amministratori</a>
+              </li>
+              @endif
+              @if (Auth::user()->is_revisor == true)
+              <li class="nav-item">
+                <a class="nav-link" href="{{route('revisor.dashboard')}}">Dashboard Revisori</a>
+              </li>
+              @endif
+              <li class="nav-item">
+                <a class="nav-link" href="{{route('work.with.us')}}">Lavora con noi</a>
+              </li>
               @endauth
             </ul>
           </div>
