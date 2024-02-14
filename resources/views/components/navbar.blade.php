@@ -50,10 +50,10 @@
                 <a class="nav-link" href="{{route('revisor.dashboard')}}">Dashboard Revisori</a>
               </li>
               @endif
+              @endauth
               <li class="nav-item">
                 <a class="nav-link" href="{{route('work.with.us')}}">Lavora con noi</a>
               </li>
-              @endauth
             </ul>
           </div>
         </div>
