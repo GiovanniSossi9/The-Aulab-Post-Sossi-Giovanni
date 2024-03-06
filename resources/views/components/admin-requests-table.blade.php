@@ -1,10 +1,11 @@
+<x-Main>
 <table class="table">
     <thead>
         <tr>
             <th scope="col">#</th>
             <th scope="col">Name</th>
             <th scope="col">email</th>
-            <th scope="col">action</th>
+            <th scope="col">Rendi Amministratore</th>
         </tr>
     </thead>
     <tbody>
@@ -20,3 +21,4 @@
         @endforeach
     </tbody>
 </table>
+</x-Main>

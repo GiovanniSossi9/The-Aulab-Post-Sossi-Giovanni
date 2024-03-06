@@ -1,8 +1,9 @@
 <x-Main>
     <div class="container">
-        <div class="row">
-            <div class="col-12 col-md-6">
+        <div class="row align-items-center">
+            <div class="col-12 col-md-6 ">
                 <h1>{{$article->title}}</h1>
+                <img src="{{Storage::url($article->img)}}" class="card-img-top" alt="{{$article->title}}">
                 <h3>{{$article->description}}</h3>
             </div>
         </div>
