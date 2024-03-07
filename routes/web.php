@@ -31,6 +31,9 @@ Route::middleware('admin')->group(function(){
     Route::get('/admin/{user}/set-revisor', [AApp\Http\Controllers\AdminController::class, 'makeUserRevisor'])->name('admin.makeUserRevisor');
     Route::get('/admin/{user}/set-admin', [App\Http\Controllers\AdminController::class, 'makeUserAdmin'])->name('admin.makeUserAdmin');
     Route::get('/admin/{user}/set-writer', [App\Http\Controllers\AdminController::class, 'makeUserWriter'])->name('admin.makeUserWriter');
+    Route::post('/tag/{tag}/update', [App\Http\Controllers\AdminController::class, 'editTag'])->name('tag.edit');
+    Route::delete('/tag/{tag}/delete', [App\Http\Controllers\AdminController::class, 'deleteTag'])->name('tag.delete');
+    Route::post('/tag/store', [App\Http\Controllers\AdminController::class, 'storeTag'])->name('tag.store');
 });
 
 Route::middleware('writer')->group(function(){

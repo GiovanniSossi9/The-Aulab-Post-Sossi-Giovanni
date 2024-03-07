@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Tag;
 use App\Models\Article;
 use App\Models\Category;
 use Illuminate\Http\Request;
@@ -40,6 +41,10 @@ class ArticleController extends Controller
                 'category_id'=>$request->input('category_id')
             ]
             );
+            $selectedTags = $request->input('tags');
+            foreach ($selectedTags as $tagId) {
+                $article->tags()->attach($tagId);
+            }
             return redirect()->route('home')->with("message","Articolo creato con successo");
     }
 

@@ -1,4 +1,3 @@
-<x-Main>
 <table class="table">
     <thead>
         <tr>
@@ -21,4 +20,3 @@
         @endforeach
     </tbody>
 </table>
-</x-Main>
