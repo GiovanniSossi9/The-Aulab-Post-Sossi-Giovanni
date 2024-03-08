@@ -34,6 +34,7 @@ Route::middleware('admin')->group(function(){
     Route::post('/tag/{tag}/update', [App\Http\Controllers\AdminController::class, 'editTag'])->name('tag.edit');
     Route::delete('/tag/{tag}/delete', [App\Http\Controllers\AdminController::class, 'deleteTag'])->name('tag.delete');
     Route::post('/tag/store', [App\Http\Controllers\AdminController::class, 'storeTag'])->name('tag.store');
+    Route::post('/category/store', [App\Http\Controllers\AdminController::class, 'storeCategory'])->name('category.store');
 });
 
 Route::middleware('writer')->group(function(){
